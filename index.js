@@ -1,5 +1,5 @@
 const googleMapsClient = require('@google/maps').createClient({
-    key: '<YOUR-GCP-API-KEY>'
+    key: 'AIzaSyB46XLeP661wCAXHx40uUCFZg0iBYPQoQA'
 })
 
 const execDistanceMatrix = (origins, destinations, waypoints = []) => {
