@@ -1,0 +1,25 @@
+{
+  "name": "cloudfunctions-google-maps-services",
+  "version": "0.1.0",
+  "description": "fetch travel distances and duration by Google Maps Distance Matrix API via Google Cloud Functions",
+  "dependencies": {
+    "@google/maps": "^0.4.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cage1016/cloudfunctions-google-maps-services.git"
+  },
+  "keywords": [
+    "cloudfunctions",
+    "gcp",
+    "googlemaps",
+    "maps"
+  ],
+  "author": "Kai-Chu Chung <cage.chung@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cage1016/cloudfunctions-google-maps-services/issues"
+  },
+  "homepage": "https://github.com/cage1016/cloudfunctions-google-maps-services#readme"
+}
