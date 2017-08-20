@@ -19,8 +19,8 @@ const execDistanceMatrix = (origins, destinations, waypoints = []) => {
                         reject(`${origins[0]} to ${d} ${response.json.rows[0].elements[i].status}`)
                     }
                     waypoints.push({
-                        waypoint1: origins[0],
-                        waypoint2: d,
+                        origins: origins[0],
+                        destination: d,
                         distance: response.json.rows[0].elements[i].distance.value,
                         duration: response.json.rows[0].elements[i].duration.value,
                     })
@@ -60,13 +60,22 @@ const distanceMatrix = (event, callback) => {
     }
 }
 
+const handleOutput = (waypoints) => {
+    output = []
+    output.push("origins\tdestination\tdistance\tduration")
+    waypoints.forEach((w, i) => {
+        output.push(`${w.origins}\t${w.destination}\t${w.distance}\t${w.duration}`)
+    })
+    return output.join('\n')
+}
+
 const handlePOST = (req, res) => {
     const addresses = req.body.addresses
     if (!addresses) {
         res.status(404).send(`addresses not found`)
     } else {
         cal(addresses).then((list) => {
-            res.status(200).send(list)
+            res.status(200).send(handleOutput(list))
         }).catch(err => {
             res.status(500).send(err)
         })
